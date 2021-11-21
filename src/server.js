@@ -1,19 +1,20 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
-
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
-const uri = "mongodb://localhost/hospitalDB";
+const uri = "mongodb://localhost/hospitalDB"; 
+const consign = require('consign')
+const port = 3000
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(__dirname + '/public'))
+app.use(express.urlencoded({ extended: true }))
+consign().include('controllers').into(app)
 
-MongoClient.connect(uri, { useUnifiedTopology: true }, (err, client) => {
+MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
   if (err) return console.log(err)
-  db = client.db('hospitalDB') // coloque o nome do seu DB
-
-  app.listen(3000, () => {
-    console.log('Server running on port 3000')
+  db = client.db('hospitalDB')
+  app.listen(port, () => {
+    console.log(`Servidor ligado na porta ${port}`)
   })
 })
 
@@ -25,7 +26,7 @@ app.route('/')
 })
 
 .post((req, res) => {
-  db.collection('data').save(req.body, (err, result) => {
+  db.collection('data').insertOne(req.body, (err, result) => {
     if (err) return console.log(err)
 
     console.log('Salvo no Banco de Dados')
