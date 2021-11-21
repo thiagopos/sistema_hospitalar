@@ -4,25 +4,23 @@ const bodyParser = require('body-parser')
 
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
-const uri = "mongodb://patrickisidoro:nuzor1539@ds133279.mlab.com:33279/crud-nodejs";
+const uri = "mongodb://localhost/hospitalDB";
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
 MongoClient.connect(uri, { useUnifiedTopology: true }, (err, client) => {
   if (err) return console.log(err)
-  db = client.db('crud-nodejs') // coloque o nome do seu DB
+  db = client.db('hospitalDB') // coloque o nome do seu DB
 
   app.listen(3000, () => {
     console.log('Server running on port 3000')
   })
 })
 
-//Tipo de template engine
 app.set('view engine', 'ejs')
 
-app.route('/') //setado a rota, e abaixo as ações a serem tomadas dentro desta rota
-.get(function(req, res) {
-  const cursor = db.collection('data').find()
+app.route('/') 
+.get((req, res) => {  
   res.render('index.ejs')
 })
 
