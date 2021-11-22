@@ -12,16 +12,20 @@
 
 <!--Form-->
 <div class="formContainer">
-<form action="/" method="post">
-  <h2>Login de usuário</h2>
+<form action="/cadFunc" method="post">
+  <h2>Cadastro de usuário</h2>
   <h3 class="msgErro"><%-data %></h3>
+  <label for="lbl_nome">Nome Completo</label>
+  <input type="text" id="lbl_nome" class="defaultInput" name="nome">
   <label for="lbl_usuario">Usuário</label>
   <input type="text" id="lbl_usuario" class="defaultInput" name="usuario">
   <label for="lbl_senha">Senha</label>
-  <input type="password" id="lbl_senha" class="defaultInput" name="senha"> 
-  <button type="submit" class="defaultButton">Entrar</button>
+  <input type="password" id="lbl_senha" class="defaultInput" name="senha">
+  <label for="lbl_senha2">Repetir Senha</label>
+  <input type="password" id="lbl_senha2" class="defaultInput" name="senha2">
+  <button type="submit" class="defaultButton">Cadastrar</button>
   <br>
-  <a href="/cadFunc">Cadastrar novo usuário</a>  
+  <a href="/">Retornar</a> 
 </form>
 </div>
 
