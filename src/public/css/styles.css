@@ -11,8 +11,7 @@ html {
   padding: 4px 10px 4px 10px;
   box-shadow: none;
   outline: none;
-  border: 1px solid #ccc;  
-  width: 256px; 
+  border: 1px solid #ccc;    
   margin-bottom: 3px; 
 }
 
@@ -136,8 +135,18 @@ label {
 /* ==================== */
 /*   ESTILO DE TABELA   */
 /* ==================== */
-
 .tabela {
+  
+  margin-left: auto;
+  margin-right: auto;  
+  text-align: left;
+  padding: 1em;
+  display: block;
+}
+table, th, td { 
+  /* Center horizontally*/
+  margin: 0 auto;
+  border: 1px solid black; 
   
 }
 

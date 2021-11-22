@@ -1,7 +1,7 @@
 module.exports = app => {
-  app.route('/cadPct')
+  app.route('/regFAA')
     .get((req, res) => {
-        res.render('cadPct.ejs', {data: ""})
+        res.render('regFAA.ejs')
     })
     
     .post((req, res) => {      
@@ -12,7 +12,8 @@ module.exports = app => {
 
         console.log(`Paciente ${pct.nome} registrado com sucesso.`)
 
-        res.render('index.ejs') 
+        res.render('regFAA.ejs', {data: pct})       
+      
       })
     })
 }
