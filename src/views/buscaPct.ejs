@@ -27,13 +27,41 @@
         <th>Nome Mãe</th>
         <th>Data Nasc</th>
         <th>CPF</th>
+        <th>Histórico Atendimento</th>
+        <th>Histórico internação</th>
+        <th>Registrar Atendimento</th>
+        <th>Internar Paciente</th>
       </tr>
     <% data.forEach(function(p) { %>    
         <tr>
           <td><%=p.nome%></td>
           <td><%=p.nomeMae%></td>
           <td><%=p.dataNasc%></td>
-          <td><%=p.cpf%></td>
+          <td><%=p.cpf%></td>          
+          <td>
+            <form action="/historicoAtend" method="post">
+              <input type="text" name="cpf" value="<%=p.cpf%>" style="display:none">
+              <button type="submit" class="defaultButton">Visualizar</button>
+            </form>            
+          </td>
+          <td>
+            <form action="/historicoInter" method="post">
+              <input type="text" name="cpf" value="<%=p.cpf%>" style="display:none">
+              <button type="submit" class="defaultButton">Visualizar</button>
+            </form>            
+          </td>
+          <td>
+            <form action="/interfaceFAA" method="post">
+              <input type="text" name="cpf" value="<%=p.cpf%>" style="display:none">
+              <button type="submit" class="defaultButton">Atender</button>
+            </form>
+          </td>
+          <td>
+            <form action="/interfaceInter" method="post">
+              <input type="text" name="cpf" value="<%=p.cpf%>" style="display:none">
+              <button type="submit" class="defaultButton">Internar</button>
+            </form>      
+          </td>
         </tr>   
     
     <% }) %>

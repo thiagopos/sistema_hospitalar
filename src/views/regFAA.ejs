@@ -1,1 +1,38 @@
-<h1>regFAA</h1>
+<%- include('partials/head.ejs') %>
+
+<!--Header-->
+
+<div class="header">
+  <img src="./images/sus.png" width="100">  
+  <div class="header-right">    
+    <a href="#about">Sobre</a>
+  </div>
+</div>
+
+
+<!--Form-->
+<div class="formPaciente">
+<form action="/regFAA" method="post">
+  <h2>Cadastrar Atendimento</h2>
+  <h3 >Paciente: <%-data.nome %></h3>
+  <h3 >CPF nº: <%-data.cpf %></h3>
+  <form action="/cadastroPct" method="POST">      
+    <label >Data de Atendimento:</label>
+    <input type="date" class="specialInput" name="dataFAA"></br>
+       <label for="lbl_local">Local Atendimento:</label>
+    <input type="text" id="lbl_local"  class="defaultInput" name="local"></br>
+    <label for="lbl_queixa">Queixa:</label>
+    <input type="text" id="lbl_queixa"  class="defaultInput" name="queixa"></br> 
+    <input type="text" name="cpf" value="<%-data.cpf%>" hidden>
+    <input type="text" name="nome" value="<%-data.nome%>" hidden>
+    <button type="submit" class="defaultButton">Cadastrar</button>
+    <br>
+    <a href="/index">Retornar</a> 
+</form>
+  
+
+
+</div>
+
+
+<%- include('partials/footer.ejs') %>

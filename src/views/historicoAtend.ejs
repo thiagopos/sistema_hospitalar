@@ -1,0 +1,42 @@
+<%- include('partials/head.ejs') %>
+
+<!--Header-->
+
+<div class="header">
+  <img src="./images/sus.png" width="100">  
+  <div class="header-right">    
+    <a href="#about">Sobre</a>
+  </div>
+</div>
+
+
+<!--Form-->
+</div>
+<div class="tabela">
+  <% if(data !== null){ %>
+    <table>
+      <tr>
+        <th>FAA</th>
+        <th>Nome</th> 
+        <th>CPF</th>
+        <th>Data Atendimento</th>
+        <th>Local</th>
+        <th>Queixa</th>
+      </tr>
+    <% data.forEach(function(p) { %>    
+        <tr>
+          <td><%=p.faa%></td>
+          <td><%=p.nome%></td>         
+          <td><%=p.cpf%></td>          
+          <td><%=p.dataFAA%></td>
+          <td><%=p.local%></td>
+          <td><%=p.queixa%></td>
+        </tr>    
+    <% }) %>
+  </table>
+    <% } %>  
+</div>
+ 
+  
+
+<%- include('partials/footer.ejs') %>

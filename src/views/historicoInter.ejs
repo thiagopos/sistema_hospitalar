@@ -4,18 +4,14 @@
 
 <div class="header">
   <img src="./images/sus.png" width="100">  
-  <div class="header-right">   
-    <a class="active" href="#home">Principal</a>
-    <a href="#contact">Buscar Paciente</a>
-    <a href="#contact">Buscar Histórico</a>
-    
-    <a href="#">Bem vindo!</a>
+  <div class="header-right">    
+    <a href="#about">Sobre</a>
   </div>
 </div>
-  
-<h3 id="mensagemIndex"><%=message%></h3>
-<div class="tabela">
-  
+
+<h3 id='mensagemIndex'>Internações do Paciente</h3>
+<!--Form-->
+</div>
 <div class="tabela">
   <% if(data !== null){ %>
     <table>
@@ -26,8 +22,7 @@
         <th>CPF</th>
         <th>Internação</th>
         <th>Clínica</th>
-        <th>HD</th>
-        <th>Registro Saída</th>
+        <th>HD</th>        
       </tr>
     <% data.forEach(function(p) { %>    
         <tr>
@@ -37,19 +32,13 @@
           <td><%=p.cpf%></td>
           <td><%=p.dataInter%></td>
           <td><%=p.clinica%></td>
-          <td><%=p.hd%></td>          
-          <td>
-            <form action="/regSaida" method="post">
-              <input type="text" name="faa" value="<%=p.faa%>" style="display:none">
-              <button type="submit" class="defaultButton">Checkout</button>
-            </form>            
-          </td>          
-        </tr>   
-    
+          <td><%=p.hd%></td>                 
+        </tr>    
     <% }) %>
   </table>
     <% } %>
 </div>
-
+ 
+  
 
 <%- include('partials/footer.ejs') %>

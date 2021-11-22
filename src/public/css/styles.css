@@ -37,13 +37,19 @@ html {
   margin-bottom: 5px;
 }
 
+.defaultButton:hover {
+  background-color: #122368;
+}
 
 
 .msgErro{
   color: darkred;
 }
 
-
+#mensagemIndex {
+  text-align: center;
+  color: rgb(50, 12, 138);
+}
 
 
 
@@ -139,7 +145,7 @@ label {
   
   margin-left: auto;
   margin-right: auto;  
-  text-align: left;
+  text-align: center;
   padding: 1em;
   display: block;
 }
