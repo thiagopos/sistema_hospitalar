@@ -9,8 +9,11 @@ module.exports = app => {
       db.collection('usuario').findOne({usuario: user.usuario}, (err, result) => {
         if(err) return console.log(err)
         if(result.senha === user.senha){
-          res.render('index.ejs')
-        }else{
+          db.collection('internados').find().toArray((err, lista) => {
+            if(err) return console.log(err)    
+            res.render('index.ejs', {data: lista, message:"Usuário Logado."})
+          })   
+        }else{           
           res.render('login.ejs', {data: "Dados incorretos"})
         }
       })

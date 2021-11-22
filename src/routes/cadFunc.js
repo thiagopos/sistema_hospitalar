@@ -17,8 +17,10 @@ module.exports = app => {
           if(err) return console.log(err)
   
           console.log(`Usuario ${user.nome} registrado com sucesso.`)
-  
-          res.render('index.ejs', {data: user.nome})       
+          db.collection('internados').find().toArray((err, lista) => {
+            if(err) return console.log(err)    
+            res.render('index.ejs', {data: lista, message:"Funcionário cadastrado com sucesso."})
+          })
         })
       }
     })
