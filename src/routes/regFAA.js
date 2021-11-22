@@ -9,10 +9,7 @@ module.exports = app => {
       db.collection('atendimento').insertOne( pct, err => {
         if(err) return console.log(err)
           console.log(`Atendimento registrado com sucesso.`)      
-          db.collection('internados').find().toArray((err, lista) => {
-            if(err) return console.log(err)    
-            res.render('index.ejs', {data: lista, message:"Atendimento cadastrado com sucesso."})
-          })          
+          res.render('buscaPct.ejs', { data: null,  message:"Atendimento cadastrado com sucesso."})
       })
     })
 

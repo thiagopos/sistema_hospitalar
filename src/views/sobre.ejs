@@ -1,0 +1,28 @@
+<%- include('partials/head.ejs') %>
+
+<!--Header-->
+
+<div class="header">
+  <img src="./images/sus.png" width="100">  
+  <div class="header-right">   
+    <a href="/index">Principal</a>
+    <a href="/buscaPct">Buscar Paciente</a> 
+    <a class="active"href="/sobre">Sobre</a>
+  </div>
+</div>
+  
+<div id="containerSobre">
+  <h2>Sistema Hospitalar</h2></br>
+  <h3 class="integrantes" >Jeanderson Sardinha</h3>
+  <h3 class="integrantes" >Elemento 2</h3>
+  <h3 class="integrantes" >Elemento 3</h3>
+
+  <p class="conteudoSobre">
+    Esse projeto tem como objetivo demonstrar a aplicação de um banco de dados não relacional em um sistema hospitalar, especificamente para atendimento e internação de pacientes.
+  </p>
+  <p class="conteudoSobre">
+    Utilizamos MongoDB como o banco NoSQL para nossos testes e utilizamos o framework Express em conjunto com a linguagem NodeJs no backend. 
+  </p>
+</div>
+
+<%- include('partials/footer.ejs') %>

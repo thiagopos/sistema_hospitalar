@@ -1,7 +1,7 @@
 module.exports = app => {
   app.route('/buscaPct')
     .get((req, res) => {
-        res.render('buscaPct.ejs', {data: null})
+        res.render('buscaPct.ejs', {data: null, message: null})
     })
     
     .post((req, res) => {
@@ -12,7 +12,7 @@ module.exports = app => {
         .toArray((err, results) => {
         if (err) return console.log(err)
         if(results !== null){          
-          res.render('buscaPct.ejs', {data: results})
+          res.render('buscaPct.ejs', {data: results, message: null})
         }
       })
     })
